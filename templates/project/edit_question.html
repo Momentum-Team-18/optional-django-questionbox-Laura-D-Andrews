@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Edit Question{% endblock %}
+{% block header %}Edit Question{% endblock %}
+{% block content%}
+    <form method="POST">
+        <div class="edit-question-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
+        <button class="button-links" type="submit">submit</button>     
+    </form>
+{% endblock %}
+{% block footer%}{% endblock %}
