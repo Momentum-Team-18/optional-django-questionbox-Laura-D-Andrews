@@ -28,6 +28,8 @@ class Answer(models.Model):
     answer_title = models.CharField(max_length=200)
     answer_text = models.TextField()
     answer_time = models.DateTimeField(default=timezone.now)
+    user = models.ForeignKey(
+        to=User, on_delete=models.CASCADE, related_name="answers")
 
     def __str__(self):
         return self.answer_title
