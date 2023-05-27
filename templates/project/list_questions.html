@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block header %}All Questions{% endblock %}
+{% block content %} 
+    <div id="container-box">
+        {% for question in questions %}
+        <div class="question-card">
+           <div class="question-text">{{ question.question_text }}</div>
+        </div>
+        {% endfor %}
+    </div> 
+{% endblock %}
+{% block footer%}{% endblock %}

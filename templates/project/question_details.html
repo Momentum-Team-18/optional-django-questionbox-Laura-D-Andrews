@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Question Details{% endblock %}
+{% block header %}Question Details{% endblock %}
+{% block content%}
+<div class="button-links">
+    <a href="{% url 'edit-question' question.pk %}">edit</a>
+</div>
+
+<button class="button-links" onclick="deleteAlbum()">delete</button>
+    <a href="{% url 'delete-question' question.pk %}">delete</a>
+
+<div class="button-links">
+    <a href="{% url 'list-questions' %}">home</a>
+</div>
+
+<div class="button-links">
+    <a href="{% url 'answer-question' answer.pk %}">answer</a>
+</div>
+ 
+
+{% endblock %}
+{% block footer%}{% endblock %}
