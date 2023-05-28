@@ -3,7 +3,7 @@
 {% block header %}Ask Question{% endblock %}
 {% block content%}
 <form method="POST">
-    <div class="edit-question-form">
+    <div class="question-form">
         {% csrf_token %}
         {{ form.as_p }}
     </div>

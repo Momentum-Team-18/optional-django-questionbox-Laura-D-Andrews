@@ -4,13 +4,14 @@ from django.utils import timezone
 
 
 class User(AbstractUser):
-    name = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=200)
     username = models.CharField(max_length=30, unique=True)
     password = models.CharField(max_length=30, unique=True)
     email = models.EmailField(('email address'), unique=True)
 
     def __str__(self):
-        return self.email
+        return self.username
 
 
 class Question(models.Model):

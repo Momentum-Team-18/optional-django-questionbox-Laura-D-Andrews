@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock %}
+{% block header %}Profile{% endblock %}
+{% block content %} 
+    <div id="container-box">
+        <div class="user-card"> 
+            <ul>Profile Details:
+                <li>First name: {{ user.first_name }} </li>
+                <li>Last name: {{ user.last_name}}</li>
+                <li>Username: {{ user.username }}</li>
+            </ul>
+        </div>
+        {% for question in questions %}
+        <div class="question-card">
+            <a href="{% url 'question-details' user.pk %}">{{ question.question_title }}</a>
+        </div>
+        <div class="answer-card">
+            <a href="{% url 'question-details' user.pk %}">{{ answer.answer_title }}</a>
+        </div>
+    </div> 
+{% endfor %}
+{% endblock %}
+{% block footer%}{% endblock %}

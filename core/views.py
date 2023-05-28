@@ -1,9 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import QuestionForm, AnswerForm
-from .models import Question, Answer
+from .models import Question, Answer, User
 
 
-# Create your views here.
+def see_profile(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    questions = Question.objects.filter(user_id=pk)
+
+    context = {
+        'user': user,
+        'questions': questions,
+    }
+    return render(request, 'project/user_profile.html', context)
 
 
 def list_questions(request):
@@ -22,8 +30,13 @@ def ask_question(request):
 
 
 def question_details(request, pk):
-    question = get_object_or_404(Question, pk=pk)
-    return render(request, 'project/question_details.html', {'question': question})
+    user = get_object_or_404(User, pk=pk)
+    questions = Question.objects.filter(user_id=pk)
+    context = {
+        'user': user,
+        'questions': questions,
+    }
+    return render(request, 'project/question_details.html', context)
 
 
 def edit_question(request, pk):
@@ -64,6 +77,3 @@ def edit_answer(request, pk):
             form.save()
             return redirect('question-details')
     return render(request, 'project/edit_answer.html', {'form': form})
-
-
-
