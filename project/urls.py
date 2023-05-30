@@ -18,9 +18,10 @@ from django.conf import settings
 from django.urls import include, path
 from core import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login', include("django.contrib.auth.urls")),
+    path('login/', include("django.contrib.auth.urls")),
     path('user/<int:pk>/profile', views.see_profile, name="see-profile"),
     path('', views.list_questions, name="list-questions"),
     path('question/<int:pk>/edit', views.edit_question, name="edit-question"),
